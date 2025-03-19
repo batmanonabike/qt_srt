@@ -1,10 +1,12 @@
-#include "_QtShowCameraFeed.h"
-#include <QtWidgets/QApplication>
+#include <QApplication>
+#include "CameraFeed.h"
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
-    QApplication a(argc, argv);
-    _QtShowCameraFeed w;
-    w.show();
-    return a.exec();
+    QApplication app(argc, argv);
+
+    CameraFeed cameraFeed;
+    cameraFeed.show();
+
+    return app.exec();
 }
