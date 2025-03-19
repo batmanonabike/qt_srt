@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_QtConsole", "01_QtConsol
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_QtTcpServer", "02_QtTcpServer\02_QtTcpServer.vcxproj", "{9C36C72C-B203-4290-B550-186AADF9E167}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_QtTcpClient", "03_QtTcpClient\03_QtTcpClient.vcxproj", "{78D86A26-E386-448D-A0CD-74DC4C87A7D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,10 @@ Global
 		{9C36C72C-B203-4290-B550-186AADF9E167}.Debug|x64.Build.0 = Debug|x64
 		{9C36C72C-B203-4290-B550-186AADF9E167}.Release|x64.ActiveCfg = Release|x64
 		{9C36C72C-B203-4290-B550-186AADF9E167}.Release|x64.Build.0 = Release|x64
+		{78D86A26-E386-448D-A0CD-74DC4C87A7D7}.Debug|x64.ActiveCfg = Debug|x64
+		{78D86A26-E386-448D-A0CD-74DC4C87A7D7}.Debug|x64.Build.0 = Debug|x64
+		{78D86A26-E386-448D-A0CD-74DC4C87A7D7}.Release|x64.ActiveCfg = Release|x64
+		{78D86A26-E386-448D-A0CD-74DC4C87A7D7}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

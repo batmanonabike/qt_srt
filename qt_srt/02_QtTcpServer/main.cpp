@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
     TcpServer server;
 
     qDebug() << "Qt is working";
-    QTimer::singleShot(5000, &a, &QCoreApplication::quit);
+    // QTimer::singleShot(5000, &a, &QCoreApplication::quit);
 
     return a.exec();
 }
