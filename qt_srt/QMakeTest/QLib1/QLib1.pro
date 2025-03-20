@@ -16,7 +16,10 @@ HEADERS += \
     qlib1.h
 
 # Default rules for deployment.
-unix {
-    target.path = $$[QT_INSTALL_PLUGINS]/generic
-}
+# unix {
+#    target.path = $$[QT_INSTALL_PLUGINS]/generic
+# }
+
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
