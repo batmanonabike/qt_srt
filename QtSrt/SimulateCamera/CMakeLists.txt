@@ -85,7 +85,8 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/srt/commo
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR}/srt) # version.h - horrid
 
 # Link the srt library to SimulateCamera
-target_link_libraries(${PROJECT_NAME} PRIVATE srt)
+# target_link_libraries(${PROJECT_NAME} PRIVATE srt)
+target_link_libraries(${PROJECT_NAME} PRIVATE srt_static)
 
 if(Qt6_FOUND)
     qt_import_qml_plugins(${PROJECT_NAME})
