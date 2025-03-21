@@ -75,11 +75,11 @@ Given your preference for using Visual Studio and the need to eventually deploy 
    - Install a C compiler (e.g., Visual Studio).
 
 3. **Build OpenSSL**  
-   - Open the "x64 Native Tools Command Prompt for VS 2022".
+   - Open the "x64 Native Tools Command Prompt for VS 2022"... as Admin (for `nmake install`).
    - Navigate to the OpenSSL source directory.
    - Run the following commands:  
      ```
-     perl Configure VC-WIN64A
+     C:\Strawberry\perl\bin\perl Configure VC-WIN64A
      nmake
      nmake install
      ```
