@@ -1,9 +1,11 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <srt.h> 
+#include <QtSrtMainLib.h>
 
 int main(int argc, char *argv[]) {
     srt_startup();
+    QtSrtMainLib_TestMethod();
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;

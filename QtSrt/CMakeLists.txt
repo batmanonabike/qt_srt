@@ -38,7 +38,7 @@ set_property(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/srt"
     "-DOPENSSL_USE_STATIC_LIBS:BOOL=${OPENSSL_USE_STATIC_LIBS}"
 )
 
-# Add subdirectories
+add_subdirectory(QtSrtMainLib)
 add_subdirectory(SimulateCamera)
 
 # Link SRT library to your project (example)
