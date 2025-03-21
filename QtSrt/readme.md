@@ -52,3 +52,11 @@ For new Qt projects, it is generally recommended to use CMake over QMake for sev
 3. **Cross-Platform**: CMake provides excellent cross-platform support, making it easier to manage builds for different platforms, including Windows and Android.
 
 Given your preference for using Visual Studio and the need to eventually deploy to Android, **CMake** would be a better choice. It will provide a smoother experience when transitioning between different platforms and IDEs.
+
+## Issues with QT Camera.
+
+- In Qt 6.2, we need a CaptureSession to manage the connection between camera and video output
+- MediaDevices provides access to available camera devices
+- The camera needs to have active: true and a specific camera device
+- The CaptureSession connects the camera and video output
+- The VideoOutput needs an id so it can be referenced by the capture session
