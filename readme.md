@@ -1,11 +1,10 @@
-
 # ReadMe
 
 Note that this document was edited using the GitHub friendly mark down [format](https://www.markdownguide.org/cheat-sheet/).
 
 This documents conversations with AI and other pertinent bits of info.
 
-# Project Goals
+## Project Goals
 
 I want to develop a series of applications in Qt that allow me to live stream to Twitch and other RTMP endpoints in situations where network connectivity is not great. I plan on achieving this by deploying software to one or more phones that will take a camera feed and split the traffic to send to multiple endpoints. A term, I think, is called bonding. Ultimately, I want to be using Secure Reliable Transport (SRT) and the C/C++ based library to use that already exists. 
 
@@ -43,3 +42,13 @@ My initial challenge will be to break this down into a series of smaller steps a
 1. **Reconstruct and Reencode on PC**: Develop the PC application to receive the bonded SRT streams, reconstruct them, reencode in RTMP, and forward to Twitch.
 2. **Test End-to-End**: Test the entire workflow from mobile camera to Twitch.
 3. **Deploy and Monitor**: Deploy the applications and monitor their performance in real-world scenarios.
+
+## CMake or QMake?
+
+For new Qt projects, it is generally recommended to use CMake over QMake for several reasons:
+
+1. **Modern and Widely Supported**: CMake is a modern build system that is widely supported and used in the industry. It has better integration with various IDEs, including Visual Studio.
+2. **Future-Proof**: Qt has been moving towards CMake as the preferred build system, and future versions of Qt are likely to have better support and features for CMake.
+3. **Cross-Platform**: CMake provides excellent cross-platform support, making it easier to manage builds for different platforms, including Windows and Android.
+
+Given your preference for using Visual Studio and the need to eventually deploy to Android, **CMake** would be a better choice. It will provide a smoother experience when transitioning between different platforms and IDEs.
