@@ -60,3 +60,84 @@ Given your preference for using Visual Studio and the need to eventually deploy 
 - The camera needs to have active: true and a specific camera device
 - The CaptureSession connects the camera and video output
 - The VideoOutput needs an id so it can be referenced by the capture session
+
+## Building OpenSSL
+
+### To Build OpenSSL for Both Windows and Android
+
+#### Step 1: Build OpenSSL for Windows
+
+1. **Download OpenSSL Source Code**  
+   - Download the OpenSSL source code from [OpenSSL Source](https://www.openssl.org/source/).
+
+2. **Install Prerequisites**  
+   - Install Perl (e.g., [Strawberry Perl](https://strawberryperl.com/)).
+   - Install a C compiler (e.g., Visual Studio).
+
+3. **Build OpenSSL**  
+   - Open the "x64 Native Tools Command Prompt for VS 2022".
+   - Navigate to the OpenSSL source directory.
+   - Run the following commands:  
+     ```
+     perl Configure VC-WIN64A
+     nmake
+     nmake install
+     ```
+   - This will install OpenSSL binaries and headers in the default location (`C:\Program Files\OpenSSL`).
+
+#### Step 2: Build OpenSSL for Android
+
+1. **Install Android NDK**  
+   - Download and install the Android NDK from [Android NDK](https://developer.android.com/ndk).
+
+2. **Set Up Environment**  
+   - Add the NDK's `toolchains/llvm/prebuilt/<platform>/bin` directory to your `PATH`.
+
+3. **Build OpenSSL**  
+   - Navigate to the OpenSSL source directory.
+   - Run the following commands for each Android ABI (e.g., `arm64-v8a`):  
+     ```
+     ./Configure android-arm64
+     make
+     make install
+     ```
+   - Replace `android-arm64` with the appropriate target for other ABIs (e.g., `android-arm`, `android-x86`).
+
+#### Step 3: Update CMake Configuration
+
+- After building OpenSSL, update your `CMakeLists.txt` to use the correct OpenSSL paths for both Windows and Android.
+
+#### Step 4: Verify the Build
+
+1. **For Windows**  
+   - Build your project using Visual Studio.
+
+2. **For Android**  
+   - Use the following CMake command:  
+     ```
+     cmake -DCMAKE_TOOLCHAIN_FILE=<path-to-android-ndk>/build/cmake/android.toolchain.cmake -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-21
+     ```
+   - This setup ensures OpenSSL is built and linked correctly for both Windows and Android.
+
+## Building SRT
+
+### Build for Windows
+Open a terminal with the appropriate environment (e.g., Visual Studio Developer Command Prompt).
+Run the following commands:
+```
+mkdir build
+cd build
+cmake .. -G "Visual Studio 17 2022" -A x64
+cmake --build . --config Release
+```
+
+### Build for Android
+Install the Android NDK and configure the Android toolchain.
+Run the following commands:
+```
+mkdir build_android
+cd build_android
+cmake .. -DCMAKE_TOOLCHAIN_FILE=<path-to-android-ndk>/build/cmake/android.toolchain.cmake -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-21
+cmake --build . --config Release
+```
+This setup allows you to build the SRT project alongside your main project for both Windows and Android.

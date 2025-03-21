@@ -11,3 +11,9 @@ set(CMAKE_PREFIX_PATH "C:/Qt/6.8.2/msvc2022_64")
 
 # Add subdirectories
 add_subdirectory(SimulateCamera)
+
+# Add the SRT project as a subdirectory
+add_subdirectory("../srt" "${CMAKE_BINARY_DIR}/srt_build")
+
+# Link SRT library to your project (example)
+target_link_libraries(${PROJECT_NAME} PRIVATE srt)
