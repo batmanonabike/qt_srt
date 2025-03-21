@@ -25,9 +25,9 @@ message(STATUS "OPENSSL_INCLUDE_DIR=${OPENSSL_INCLUDE_DIR}")
 
 # Add the SRT project as a subdirectory and disable encryption
 set(ENABLE_ENCRYPTION OFF CACHE BOOL "Disable encryption in SRT")
-add_subdirectory("../srt" "${CMAKE_BINARY_DIR}/srt_build")
+add_subdirectory("srt" "${CMAKE_BINARY_DIR}srt_build")
 
-set_property(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../srt" 
+set_property(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/srt" 
     PROPERTY CMAKE_CACHE_ARGS 
     "-DENABLE_ENCRYPTION:BOOL=${ENABLE_ENCRYPTION}"
 )
