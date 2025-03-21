@@ -27,6 +27,7 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR}
     COMPONENTS
         Quick
+        Multimedia
 )
 qt_standard_project_setup()
 
@@ -75,7 +76,7 @@ set_target_properties(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
         Qt::Quick
-        Qt6Multimedia
+        Qt::Multimedia
 )
 
 if(Qt6_FOUND)
