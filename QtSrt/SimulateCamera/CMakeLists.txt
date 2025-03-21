@@ -79,6 +79,14 @@ target_link_libraries(${PROJECT_NAME}
         Qt::Multimedia
 )
 
+# Add MESSY AF includes directory for the SRT library, this feels all wrong.
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/srt/srtcore)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/srt/common)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR}/srt) # version.h - horrid
+
+# Link the srt library to SimulateCamera
+target_link_libraries(${PROJECT_NAME} PRIVATE srt)
+
 if(Qt6_FOUND)
     qt_import_qml_plugins(${PROJECT_NAME})
 endif()

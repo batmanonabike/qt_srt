@@ -12,10 +12,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(QTDIR "C:/Qt/6.8.2/msvc2022_64")
 set(CMAKE_PREFIX_PATH "C:/Qt/6.8.2/msvc2022_64")
 
-# Add subdirectories
-add_subdirectory(SimulateCamera)
-
 # Set OpenSSL for Windows (this will need adjusting for Android/cross platform).
+
+# SET OPENSSL_LIBRARIES="C:/Program Files/OpenSSL/lib"
+# SET OPENSSL_INCLUDE_DIR="C:/Program Files/OpenSSL/include"
+
 set(OPENSSL_LIBRARIES "C:/Program Files/OpenSSL/lib")
 set(OPENSSL_INCLUDE_DIR "C:/Program Files/OpenSSL/include")
 # set(OPENSSL_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../openssl/include")
@@ -25,12 +26,16 @@ message(STATUS "OPENSSL_INCLUDE_DIR=${OPENSSL_INCLUDE_DIR}")
 
 # Add the SRT project as a subdirectory and disable encryption
 set(ENABLE_ENCRYPTION OFF CACHE BOOL "Disable encryption in SRT")
-add_subdirectory("srt" "${CMAKE_BINARY_DIR}srt_build")
+# add_subdirectory("srt" "${CMAKE_BINARY_DIR}srt_build")
+add_subdirectory("srt")
 
 set_property(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/srt" 
     PROPERTY CMAKE_CACHE_ARGS 
     "-DENABLE_ENCRYPTION:BOOL=${ENABLE_ENCRYPTION}"
 )
 
+# Add subdirectories
+add_subdirectory(SimulateCamera)
+
 # Link SRT library to your project (example)
-# target_link_libraries(${PROJECT_NAME} PRIVATE srt)
+# target_link_libraries(${PROJECT_NAME} PRIVATE srt) 
