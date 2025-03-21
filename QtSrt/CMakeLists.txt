@@ -25,14 +25,17 @@ message(STATUS "OPENSSL_LIBRARIES=${OPENSSL_LIBRARIES}")
 message(STATUS "OPENSSL_INCLUDE_DIR=${OPENSSL_INCLUDE_DIR}")
 
 # Add the SRT project as a subdirectory and disable encryption
-set(ENABLE_ENCRYPTION OFF CACHE BOOL "Disable encryption in SRT")
+set(ENABLE_ENCRYPTION ON CACHE BOOL "Encryption in SRT")
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build SRT as a static library") 
+set(OPENSSL_USE_STATIC_LIBS ON CACHE BOOL "Link OpenSSL libraries statically.")
+
 add_subdirectory("srt")
 
 set_property(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/srt" 
     PROPERTY CMAKE_CACHE_ARGS 
     "-DENABLE_ENCRYPTION:BOOL=${ENABLE_ENCRYPTION}"
     "-DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}"
+    "-DOPENSSL_USE_STATIC_LIBS:BOOL=${OPENSSL_USE_STATIC_LIBS}"
 )
 
 # Add subdirectories
