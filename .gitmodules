@@ -1,5 +1,5 @@
 [submodule "srt"]
-	path = srt
+	path = QtSrt/srt
 	url = https://github.com/Haivision/srt
 [submodule "openssl"]
 	path = openssl
