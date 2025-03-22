@@ -25,6 +25,9 @@ protected:
 private:
     GstElement *pipeline;
     QString m_source;
+
+    static bool isRtmpPluginAvailable();
+    static gboolean bus_call(GstBus* bus, GstMessage* msg, gpointer data);
 };
 
 #endif // VIDEOPLAYER_H

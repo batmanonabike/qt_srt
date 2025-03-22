@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
     qmlRegisterType<VideoPlayer>("CustomComponents", 1, 0, "VideoPlayer");
 
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     if (engine.rootObjects().isEmpty())
         return -1;

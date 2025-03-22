@@ -45,15 +45,38 @@ qt_add_executable(RTMPViewer
     main.cpp
     VideoPlayer.cpp
     VideoPlayer.h
+    qml.qrc
 )
 
-qt_add_qml_module(RTMPViewer
-    URI RTMPViewer
-    VERSION 1.0
-    QML_FILES main.qml
-)
+# qt_add_qml_module command is used to define a QML module, useful for reusable QML components or libraries
+# Alternative to qt_add_executable with qml.qrc.
+#
+# qt_add_qml_module(RTMPViewer
+#    URI RTMPViewer
+#    VERSION 1.0
+#    QML_FILES main.qml
+#)
 
 target_include_directories(RTMPViewer PRIVATE ${GSTREAMER_INCLUDE_DIRS})
 
 # gstreamer-1.0.lib  
 target_link_libraries(RTMPViewer PRIVATE Qt6::Quick ${GSTREAMER_LIBRARIES})
+
+if(WIN32)
+    # Find GStreamer bin directory
+    pkg_get_variable(GSTREAMER_BIN_DIR gstreamer-1.0 exec_prefix)
+    if(GSTREAMER_BIN_DIR)
+        # Convert to native path format
+        file(TO_NATIVE_PATH "${GSTREAMER_BIN_DIR}/bin" GSTREAMER_BIN_NATIVE)
+        message(STATUS "GStreamer bin directory: ${GSTREAMER_BIN_NATIVE}")
+        
+        # Configure the app to find DLLs at runtime
+        set_target_properties(RTMPViewer PROPERTIES
+            VS_DEBUGGER_ENVIRONMENT "PATH=${GSTREAMER_BIN_NATIVE};%PATH%")
+            
+        # Optional: Copy DLLs to output directory post-build
+        add_custom_command(TARGET RTMPViewer POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_directory
+            "${GSTREAMER_BIN_DIR}/bin" "$<TARGET_FILE_DIR:RTMPViewer>")
+    endif()
+endif()
