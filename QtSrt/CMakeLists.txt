@@ -12,13 +12,15 @@ add_compile_options(/EHsc) # Add the /EHsc flag for exception handling
 set(QTDIR "C:/Qt/6.8.2/msvc2022_64")
 set(CMAKE_PREFIX_PATH "C:/Qt/6.8.2/msvc2022_64")
 
-set(VCPKG_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg")
+# THIS WILL NEED TO CHANGE...
+# set(VCPKG_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg")
+set(VCPKG_ROOT "C:/source/repos/qt_srt_29/QtSrt/vcpkg")
 set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 
 if(WIN32)
-     set(ENV{PKG_CONFIG_PATH} "${CMAKE_SOURCE_DIR}/vcpkg/installed/x64-windows/lib/pkgconfig;$ENV{PKG_CONFIG_PATH}")
+     set(ENV{PKG_CONFIG_PATH} "${VCPKG_ROOT}/installed/x64-windows/lib/pkgconfig;$ENV{PKG_CONFIG_PATH}")
 else()
-    set(ENV{PKG_CONFIG_PATH} "${CMAKE_SOURCE_DIR}/vcpkg/installed/x64-windows/lib/pkgconfig:$ENV{PKG_CONFIG_PATH}")
+    set(ENV{PKG_CONFIG_PATH} "${VCPKG_ROOT}/installed/x64-windows/lib/pkgconfig:$ENV{PKG_CONFIG_PATH}")
 endif()
 
 # set(PKG_CONFIG_PATH "${CMAKE_SOURCE_DIR}/vcpkg/installed/x64-windows/lib/pkgconfig")
