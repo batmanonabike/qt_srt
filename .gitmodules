@@ -4,3 +4,6 @@
 [submodule "openssl"]
 	path = QtSrt/openssl
 	url = https://github.com/openssl/openssl
+[submodule "QtSrt/vcpkg"]
+	path = QtSrt/vcpkg
+	url = https://github.com/Microsoft/vcpkg.git
