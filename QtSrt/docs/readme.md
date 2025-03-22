@@ -61,6 +61,15 @@ Given your preference for using Visual Studio and the need to eventually deploy 
 - The CaptureSession connects the camera and video output
 - The VideoOutput needs an id so it can be referenced by the capture session
 
+## Using CaptureSession for Video Re-encoding in Qt
+
+In Qt if I wanted to re-encode video from an Android camera source, would I use a CaptureSession?
+
+1.	Yes, for Android camera sources in Qt 6.x, CaptureSession is the recommended approach for handling video capture and encoding.
+2.	CaptureSession serves as the central component that connects different multimedia elements like Camera and VideoOutput.
+3.	For video re-encoding, you would use CaptureSession in conjunction with MediaRecorder.
+4.	The implementation would need to capture the Android camera feed, process it, and then encode it for streaming purposes.
+
 ## Building OpenSSL
 
 ### To Build OpenSSL for Both Windows and Android
@@ -153,3 +162,21 @@ vcpkg\vcpkg install gstreamer
 
 ## See also
 - [Stream Info](streaminfo.md) - Some info on RTMP, SRT and tooling.
+
+# Project Documentation
+
+## Overview
+This project involves video encoding and streaming using Qt.
+
+## Documentation Links
+
+### Qt Camera Documentation
+For detailed information on the Camera module in Qt, refer to the official Qt documentation:
+- [Qt Camera Documentation](https://doc.qt.io/qt-5/qml-qtmultimedia-camera.html)
+
+### Qt Version
+Ensure you are referring to the documentation for the specific version of Qt being used in this project. This project uses Qt 5.15.2.
+
+### Additional Resources
+- [Qt Multimedia Overview](https://doc.qt.io/qt-5/qtmultimedia-index.html)
+- [Qt QML Types](https://doc.qt.io/qt-5.15/qmltypes.html)
