@@ -141,3 +141,6 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=<path-to-android-ndk>/build/cmake/android.toolch
 cmake --build . --config Release
 ```
 This setup allows you to build the SRT project alongside your main project for both Windows and Android.
+
+## Other Project Prerequisites
+- [Vcpkg Setup Guide](vcpkg_setup.md) - Instructions for installing and configuring vcpkg with CMake
