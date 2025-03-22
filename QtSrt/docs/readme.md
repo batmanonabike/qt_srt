@@ -163,6 +163,20 @@ vcpkg\vcpkg install gstreamer[plugins-bad] --recurse
 ## See also
 - [Stream Info](streaminfo.md) - Some info on RTMP, SRT and tooling.
 
+## Regarding Twitch Streaming 
+Twitch supports video feeds encoded with H.264 (AVC). 
+
+H.264 is the recommended video codec for streaming to Twitch due to its high compression efficiency and broad compatibility.
+When streaming to Twitch, you should use the following settings for optimal performance:
+- Video Codec: H.264 (AVC)
+- Audio Codec: AAC
+ - Container Format: FLV (Flash Video)
+
+Here is an example of how you might configure an FFmpeg command to stream to Twitch using H.264 and AAC:
+```
+ffmpeg -re -i input.mp4 -c:v libx264 -preset veryfast -b:v 2500k -c:a aac -b:a 160k -f flv rtmp://live.twitch.tv/app/{stream_key}
+```
+
 # Project Documentation
 
 ## Overview
@@ -180,3 +194,11 @@ Ensure you are referring to the documentation for the specific version of Qt bei
 ### Additional Resources
 - [Qt Multimedia Overview](https://doc.qt.io/qt-6/qtmultimedia-index.html)
 - [Qt QML Types](https://doc.qt.io/qt-6.8/qmltypes.html)
+
+## Current Issues
+I'm currently struggling to get GStreamer installed with RTMP support.  
+
+### Switching from GStreamer to librtmp
+
+Given the challenges with GStreamer, I'm considering switching to librtmp for RTMP support.
+This library provides a simpler interface for RTMP streaming and may be easier to integrate with the project.
