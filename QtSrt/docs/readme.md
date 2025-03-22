@@ -143,4 +143,10 @@ cmake --build . --config Release
 This setup allows you to build the SRT project alongside your main project for both Windows and Android.
 
 ## Other Project Prerequisites
+- [PkgConfig Setup Guide](pkgconfig_setup.md) - Instructions for installing and configuring PkgConfig with CMake
 - [Vcpkg Setup Guide](vcpkg_setup.md) - Instructions for installing and configuring vcpkg with CMake
+
+Used by RTMPViewer...
+```
+vcpkg\vcpkg install gstreamer
+```

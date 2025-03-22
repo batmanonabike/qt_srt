@@ -4,10 +4,42 @@ project(RTMPViewer LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_AUTOMOC ON)  # Enable AUTOMOC
+set(CMAKE_AUTORCC ON)  # Enable AUTORCC for resources
+set(CMAKE_AUTOUIC ON)  # Enable AUTOUIC for UI files
 
+# message(STATUS "PKG_CONFIG_PATH=${PKG_CONFIG_PATH}")
+message(STATUS "CMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}")
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 find_package(PkgConfig REQUIRED)
+
+# Check GStreamer version using pkg-config
+# See ReadMe.md for more information:
+#   vcpkg\vcpkg install gstreamer
+execute_process(
+    COMMAND pkg-config --modversion gstreamer-1.0
+    OUTPUT_VARIABLE GSTREAMER_VERSION
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+    ERROR_QUIET
+)
+if(NOT GSTREAMER_VERSION)
+     message(FATAL_ERROR "GStreamer not found. Please install GStreamer.")
+else()
+    message(STATUS "Found GStreamer version ${GSTREAMER_VERSION}")
+endif()
+
 pkg_check_modules(GSTREAMER REQUIRED gstreamer-1.0)
+
+if(GSTREAMER_FOUND)
+    message(STATUS "GStreamer found via pkg-config")
+    message(STATUS "GSTREAMER_LIBRARIES=${GSTREAMER_LIBRARIES}")
+    message(STATUS "GSTREAMER_LIBRARY_DIRS=${GSTREAMER_LIBRARY_DIRS}")
+    message(STATUS "GSTREAMER_INCLUDE_DIRS=${GSTREAMER_INCLUDE_DIRS}")
+
+    link_directories(${GSTREAMER_LIBRARY_DIRS})
+else()
+    message(WARNING "GStreamer not found via pkg-config")
+endif()
 
 qt_add_executable(RTMPViewer
     main.cpp
@@ -22,4 +54,6 @@ qt_add_qml_module(RTMPViewer
 )
 
 target_include_directories(RTMPViewer PRIVATE ${GSTREAMER_INCLUDE_DIRS})
+
+# gstreamer-1.0.lib  
 target_link_libraries(RTMPViewer PRIVATE Qt6::Quick ${GSTREAMER_LIBRARIES})
