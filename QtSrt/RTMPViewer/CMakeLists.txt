@@ -15,7 +15,8 @@ find_package(PkgConfig REQUIRED)
 
 # Check GStreamer version using pkg-config
 # See ReadMe.md for more information:
-#   vcpkg\vcpkg install gstreamer
+# vckpk\vcpkg install gstreamer[plugins-bad] --recurse
+# Previously: vcpkg\vcpkg install gstreamer
 execute_process(
     COMMAND pkg-config --modversion gstreamer-1.0
     OUTPUT_VARIABLE GSTREAMER_VERSION

@@ -157,7 +157,7 @@ This setup allows you to build the SRT project alongside your main project for b
 
 Used by RTMPViewer...
 ```
-vcpkg\vcpkg install gstreamer
+vcpkg\vcpkg install gstreamer[plugins-bad] --recurse
 ```
 
 ## See also
