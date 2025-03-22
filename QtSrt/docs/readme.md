@@ -172,11 +172,11 @@ This project involves video encoding and streaming using Qt.
 
 ### Qt Camera Documentation
 For detailed information on the Camera module in Qt, refer to the official Qt documentation:
-- [Qt Camera Documentation](https://doc.qt.io/qt-5/qml-qtmultimedia-camera.html)
+- [Qt Camera Documentation](https://doc.qt.io/qt-6/qml-qtmultimedia-camera.html)
 
 ### Qt Version
-Ensure you are referring to the documentation for the specific version of Qt being used in this project. This project uses Qt 5.15.2.
+Ensure you are referring to the documentation for the specific version of Qt being used in this project. This project uses Qt 6.8.2.
 
 ### Additional Resources
-- [Qt Multimedia Overview](https://doc.qt.io/qt-5/qtmultimedia-index.html)
-- [Qt QML Types](https://doc.qt.io/qt-5.15/qmltypes.html)
+- [Qt Multimedia Overview](https://doc.qt.io/qt-6/qtmultimedia-index.html)
+- [Qt QML Types](https://doc.qt.io/qt-6.8/qmltypes.html)
