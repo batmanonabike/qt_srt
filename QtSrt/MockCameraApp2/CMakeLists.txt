@@ -12,10 +12,10 @@ find_package(Qt6 COMPONENTS Core Quick Multimedia REQUIRED)
 
 set(PROJECT_SOURCES
     main.cpp
-    mockcamera.cpp
-    mockcamera.h
-    cameracontroller.cpp
-    cameracontroller.h
+    MockCamera.cpp
+    MockCamera.h
+    CameraController.cpp
+    CameraController.h
     qml.qrc
 )
 
