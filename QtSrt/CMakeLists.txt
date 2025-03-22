@@ -13,10 +13,6 @@ set(QTDIR "C:/Qt/6.8.2/msvc2022_64")
 set(CMAKE_PREFIX_PATH "C:/Qt/6.8.2/msvc2022_64")
 
 # Set OpenSSL for Windows (this will need adjusting for Android/cross platform).
-
-# SET OPENSSL_LIBRARIES="C:/Program Files/OpenSSL/lib"
-# SET OPENSSL_INCLUDE_DIR="C:/Program Files/OpenSSL/include"
-
 set(OPENSSL_LIBRARIES "C:/Program Files/OpenSSL/lib")
 set(OPENSSL_INCLUDE_DIR "C:/Program Files/OpenSSL/include")
 # set(OPENSSL_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../openssl/include")
@@ -39,6 +35,7 @@ set_property(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/srt"
 )
 
 add_subdirectory(QtSrtMainLib)
+add_subdirectory(RTMPViewer)
 add_subdirectory(SimulateCamera)
 
 # Link SRT library to your project (example)
