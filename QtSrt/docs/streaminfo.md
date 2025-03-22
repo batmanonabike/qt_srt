@@ -79,6 +79,15 @@ To stream your desktop with looping audio:
 ffmpeg -f gdigrab -framerate 30 -i desktop -f lavfi -i "sine=frequency=1000:duration=3600" -c:v libx264 -preset veryfast -pix_fmt yuv420p -c:a aac -f flv rtmp://localhost:1935/live/desktop
 ```
 
+#### Streaming Test Signals...
+To stream test signals:
+```
+ffmpeg -f lavfi -i testsrc2=size=640x360:rate=5 -c:v libx264 -preset ultrafast -b:v 500k -pix_fmt yuv420p -f flv rtmp://localhost:1935/live/martstest
+ffmpeg -f lavfi -i testsrc2=size=640x360:rate=5 -c:v libx264 -preset veryslow -pix_fmt yuv420p -f flv rtmp://localhost:1935/live/martstest
+ffmpeg -f lavfi -i testsrc2=size=1280x720:rate=30 -c:v libx264 -preset veryfast -pix_fmt yuv420p -f flv rtmp://localhost:1935/live/martstest
+ffmpeg -f lavfi -i testsrc=size=1280x720:rate=30 -f lavfi -i sine=frequency=1000:duration=3600 -c:v libx264 -preset veryfast -pix_fmt yuv420p -c:a aac -f flv rtmp://localhost:1935/live/audioonly
+```
+
 You can verify the stream in VLC using the same RTMP URL.
 
 ### Troubleshooting
