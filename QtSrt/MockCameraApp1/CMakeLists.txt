@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(SimulateCamera LANGUAGES CXX)
+project(MockCameraApp1 LANGUAGES CXX)
 
 include(qt.cmake)
 
@@ -55,7 +55,7 @@ qt_add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
 
 if(QT_VERSION VERSION_GREATER_EQUAL 6.2)
     qt_add_qml_module(${PROJECT_NAME}
-        URI simulatecamera
+        URI MockCameraApp1
         VERSION 1.0
         RESOURCE_PREFIX "/qt/qml/"
         QML_FILES

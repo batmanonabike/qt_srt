@@ -51,8 +51,8 @@ set_property(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/srt"
 
 add_subdirectory(QtSrtMainLib)
 add_subdirectory(RTMPViewer)
-add_subdirectory(MockCameraApp)
-add_subdirectory(SimulateCamera)
+add_subdirectory(MockCameraApp1)
+add_subdirectory(MockCameraApp2)
 
 # Link SRT library to your project (example)
 # target_link_libraries(${PROJECT_NAME} PRIVATE srt) 

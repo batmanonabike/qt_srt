@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(MockCameraApp LANGUAGES CXX)
+project(MockCameraApp2 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,12 +19,13 @@ set(PROJECT_SOURCES
     qml.qrc
 )
 
-qt_add_executable(MockCameraApp
+qt_add_executable(MockCameraApp2
     ${PROJECT_SOURCES}
 )
 
-target_link_libraries(MockCameraApp PRIVATE
+target_link_libraries(MockCameraApp2 PRIVATE
     Qt6::Core
     Qt6::Quick
     Qt6::Multimedia
 )
+
