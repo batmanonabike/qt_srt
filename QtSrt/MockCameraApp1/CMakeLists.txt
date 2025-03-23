@@ -68,10 +68,7 @@ qt_add_resources(${PROJECT_NAME} "resources"
     FILES main.qml
 )
 
-set_target_properties(${PROJECT_NAME}
-    PROPERTIES
-        WIN32_EXECUTABLE TRUE
-)
+set_target_properties(${PROJECT_NAME} PROPERTIES WIN32_EXECUTABLE TRUE)
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
@@ -84,7 +81,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/srt/srtco
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/srt/common)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR}/srt) # version.h - horrid
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/QtSrtMainLib)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/QtSrtMainLib/include)
 
 # target_link_libraries(${PROJECT_NAME} PRIVATE srt)
 target_link_libraries(${PROJECT_NAME} PRIVATE srt_static)

@@ -1,4 +1,4 @@
-#include "QtSrtMainLib.h"
+#include <QtSrtMainLib/QtSrtMainLib.h>
 
 QtSrtMainLib::QtSrtMainLib()
 {

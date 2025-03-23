@@ -21,11 +21,8 @@ set(PROJECT_SOURCES
     qml.qrc
 )
 
-qt_add_executable(MockCameraApp2
-    ${PROJECT_SOURCES}
-)
-
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/QtSrtMainLib)
+qt_add_executable(MockCameraApp2 ${PROJECT_SOURCES})
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/QtSrtMainLib/include)
 
 target_link_libraries(MockCameraApp2 PRIVATE
     Qt6::Core

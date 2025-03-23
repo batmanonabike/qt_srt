@@ -2,7 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "CameraController.h"
-#include <QtSrtMainLib.h>
+#include <QtSrtMainLib/QtSrtMainLib.h>
 
 int main(int argc, char* argv[])
 {
