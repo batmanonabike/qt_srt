@@ -86,7 +86,6 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR}/srt) # ve
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/QtSrtMainLib)
 
-
 # target_link_libraries(${PROJECT_NAME} PRIVATE srt)
 target_link_libraries(${PROJECT_NAME} PRIVATE srt_static)
 target_link_libraries(${PROJECT_NAME} PRIVATE QtSrtMainLib)

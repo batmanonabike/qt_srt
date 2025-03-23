@@ -25,9 +25,12 @@ qt_add_executable(MockCameraApp2
     ${PROJECT_SOURCES}
 )
 
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/QtSrtMainLib)
+
 target_link_libraries(MockCameraApp2 PRIVATE
     Qt6::Core
     Qt6::Quick
     Qt6::Multimedia
+    QtSrtMainLib
 )
 

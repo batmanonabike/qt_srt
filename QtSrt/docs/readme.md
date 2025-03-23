@@ -194,6 +194,8 @@ Ensure you are referring to the documentation for the specific version of Qt bei
 ### Additional Resources
 - [Qt Multimedia Overview](https://doc.qt.io/qt-6/qtmultimedia-index.html)
 - [Qt QML Types](https://doc.qt.io/qt-6.8/qmltypes.html)
+- [QVideoSink](https://doc.qt.io/qt-6/qvideosink.html)
+- [QML VideoOutput](https://doc.qt.io/qt-6/qml-qtmultimedia-videooutput.html#videoSink-prop)
 
 ## Current Issues
 I'm currently struggling to get GStreamer installed with RTMP support.  

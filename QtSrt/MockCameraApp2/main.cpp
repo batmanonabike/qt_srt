@@ -2,9 +2,12 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "CameraController.h"
+#include <QtSrtMainLib.h>
 
 int main(int argc, char* argv[])
 {
+    QtSrtMainLib_TestMethod();
+
     QGuiApplication app(argc, argv);
 
     // Register the camera controller type for QML
