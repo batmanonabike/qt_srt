@@ -12,6 +12,7 @@ set(CMAKE_AUTOUIC ON)  # Enable AUTOUIC for UI files
 message(STATUS "CMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}")
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 find_package(PkgConfig REQUIRED)
+qt_standard_project_setup()
 
 # Check GStreamer version using pkg-config
 # See ReadMe.md for more information:
