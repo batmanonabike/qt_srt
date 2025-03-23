@@ -11,7 +11,7 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core)
 qt_standard_project_setup()
 
 set(PROJECT_SOURCES
-    "include/QtSrtMainLib/qtsrtmainlib_global.h"
+    "include/QtSrtMainLib/QtSrtMainLibGlobal.h"
     "include/QtSrtMainLib/QtSrtMainLib.h"
     "src/QtSrtMainLib.cpp"
 )

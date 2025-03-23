@@ -1,6 +1,6 @@
 #pragma once
 
-#include "qtsrtmainlib_global.h"
+#include "QtSrtMainLibGlobal.h"
 
 class QTSRTMAINLIB_EXPORT QtSrtMainLib
 {
