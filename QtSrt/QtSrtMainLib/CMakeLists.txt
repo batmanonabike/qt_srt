@@ -2,22 +2,29 @@ cmake_minimum_required(VERSION 3.16)
 project(QtSrtMainLib LANGUAGES CXX)
 
 include(qt.cmake)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core)
+find_package(Qt6 COMPONENTS Core Quick Multimedia REQUIRED)
 qt_standard_project_setup()
 
 set(PROJECT_SOURCES
-    "include/QtSrtMainLib/QtSrtMainLibGlobal.h"
-    "include/QtSrtMainLib/QtSrtMainLib.h"
+    "src/MockCamera.cpp"
     "src/QtSrtMainLib.cpp"
+    "src/CameraController.cpp"
+    "include/QtSrtMainLib/MockCamera.h"
+    "include/QtSrtMainLib/QtSrtMainLib.h"
+    "include/QtSrtMainLib/CameraController.h"
+    "include/QtSrtMainLib/QtSrtMainLibGlobal.h"
+)
+
+set(PROJECT_LIBS
+    "Qt6::Core"
+    "Qt6::Quick"
+    "Qt6::Multimedia"
 )
 
 add_library(${PROJECT_NAME} STATIC ${PROJECT_SOURCES})
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt::Core)
+target_link_libraries(${PROJECT_NAME} PUBLIC ${PROJECT_LIBS})
 target_compile_definitions(${PROJECT_NAME} PRIVATE QTSRTMAINLIB_LIB)
-
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)

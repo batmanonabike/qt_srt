@@ -1,8 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include "CameraController.h"
 #include <QtSrtMainLib/QtSrtMainLib.h>
+#include <QtSrtMainLib/CameraController.h>
 
 int main(int argc, char* argv[])
 {

@@ -1,7 +1,7 @@
-#include "MockCamera.h"
 #include <QPainter>
 #include <QDateTime>
 #include <QRandomGenerator>
+#include <QtSrtMainLib/MockCamera.h>
 
 MockCamera::MockCamera(QObject* parent)
     : QObject(parent)

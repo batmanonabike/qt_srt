@@ -1,4 +1,4 @@
-#include "CameraController.h"
+#include <QtSrtMainLib/CameraController.h>
 
 CameraController::CameraController(QObject* parent)
     : QObject(parent)
