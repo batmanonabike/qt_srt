@@ -8,6 +8,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+include(qt.cmake)
+
 find_package(Qt6 COMPONENTS Core Quick Multimedia REQUIRED)
 
 set(PROJECT_SOURCES

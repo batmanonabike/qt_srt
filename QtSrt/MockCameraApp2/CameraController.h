@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QSize>
 #include <QVideoSink>
-#include "mockcamera.h"
+#include "MockCamera.h"
 
 class CameraController : public QObject
 {

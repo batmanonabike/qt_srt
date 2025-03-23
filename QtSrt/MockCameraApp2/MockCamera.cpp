@@ -1,4 +1,4 @@
-#include "mockcamera.h"
+#include "MockCamera.h"
 #include <QPainter>
 #include <QDateTime>
 #include <QRandomGenerator>
