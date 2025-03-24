@@ -3,6 +3,14 @@ project(QtSrt LANGUAGES CXX)
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/common.cmake)
 
+# subst x: c:\source\repos\temp
+# set(BUILD_OUTPUT "X:/")
+set(BUILD_OUTPUT "R:/Builds")
+set(CMAKE_BINARY_DIR "${BUILD_OUTPUT}/build")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${BUILD_OUTPUT}/bin")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${BUILD_OUTPUT}/lib")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${BUILD_OUTPUT}/lib")
+
 # Add the SRT project as a subdirectory and disable encryption
 set(ENABLE_ENCRYPTION ON CACHE BOOL "Encryption in SRT")
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build SRT as a static library") 
