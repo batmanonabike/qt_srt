@@ -7,6 +7,9 @@
 #include <QVideoFrame>
 #include <QVideoSink>
 #include <QSize>
+#include <QMediaCaptureSession>
+#include <QMediaRecorder>
+#include <QCamera>
 
 class MockCamera : public QObject
 {
@@ -48,6 +51,10 @@ private:
     int m_frameRate;
     QVideoSink* m_videoSink;
     int m_frameCount;
+
+    QMediaCaptureSession m_captureSession;
+    QMediaRecorder m_mediaRecorder;
+    QCamera m_camera;
 };
 
 #endif // MOCKCAMERA_H

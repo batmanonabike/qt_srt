@@ -1,5 +1,7 @@
+#include <QUrl>
 #include <QPainter>
 #include <QDateTime>
+#include <QMediaFormat>
 #include <QRandomGenerator>
 #include <QtSrtMainLib/MockCamera.h>
 
@@ -10,8 +12,20 @@ MockCamera::MockCamera(QObject* parent)
     , m_frameRate(30)
     , m_videoSink(nullptr)
     , m_frameCount(0)
+    , m_camera(this)
+    , m_mediaRecorder(this)
 {
     connect(&m_frameTimer, &QTimer::timeout, this, &MockCamera::generateFrame);
+
+    // Set up the camera and media recorder
+    m_captureSession.setCamera(&m_camera);
+    m_captureSession.setRecorder(&m_mediaRecorder);
+
+    // Configure the media recorder
+    m_mediaRecorder.setMediaFormat(QMediaFormat::MPEG4);
+    //m_mediaRecorder.setMediaFormat(QMediaFormat::FileFormat::);
+    m_mediaRecorder.setQuality(QMediaRecorder::HighQuality);
+    m_mediaRecorder.setOutputLocation(QUrl::fromLocalFile("output.ts"));
 }
 
 MockCamera::~MockCamera()
@@ -32,6 +46,15 @@ void MockCamera::setActive(bool active)
     m_active = active;
     updateTimer();
     emit activeChanged();
+
+    if (m_active) {
+        m_camera.start();
+        m_mediaRecorder.record();
+    }
+    else {
+        m_mediaRecorder.stop();
+        m_camera.stop();
+    }
 }
 
 QSize MockCamera::resolution() const
