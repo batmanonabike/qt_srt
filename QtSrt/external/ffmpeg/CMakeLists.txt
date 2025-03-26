@@ -9,10 +9,21 @@ set(FFMPEG_INSTALL_DIR ${CMAKE_BINARY_DIR}/ffmpeg/install)
 # Path to the FFmpeg submodule
 set(FFMPEG_SOURCE_DIR ${EXTERNAL_PROJECT_DIR}/ffmpeg-submodule)
 
-# Add libx264 as an external project (using existing submodule)
 message(STATUS "EXTERNAL_PROJECT_DIR=${EXTERNAL_PROJECT_DIR}")
-message(STATUS "ENV{PATH}=$ENV{PATH}")
+message(STATUS "CMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}")
+# message(STATUS "ENV{PATH}=$ENV{PATH}")
 
+if(WIN32)
+    set(CONFIGURE_COMMAND ${BASH_EXECUTABLE} -c "./configure --prefix=${FFMPEG_INSTALL_DIR} --enable-shared --disable-static")
+    set(BUILD_COMMAND ${BASH_EXECUTABLE} -c "make -j4")
+    set(INSTALL_COMMAND ${BASH_EXECUTABLE} -c "make install")
+else()
+    set(CONFIGURE_COMMAND ./configure --prefix=${FFMPEG_INSTALL_DIR} --enable-shared --disable-static)
+    set(BUILD_COMMAND make -j4)
+    set(INSTALL_COMMAND make install)
+endif()
+
+# Add libx264 as an external project (using existing submodule)
 ExternalProject_Add(
     x264
     SOURCE_DIR ${EXTERNAL_PROJECT_DIR}/x264
@@ -22,7 +33,6 @@ ExternalProject_Add(
     INSTALL_COMMAND ${INSTALL_COMMAND}
     BUILD_IN_SOURCE 1
 )
-
 
 #[[
 # Add libx265 as an external project (using existing submodule)

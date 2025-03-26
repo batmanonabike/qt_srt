@@ -32,6 +32,14 @@ pacman -Su
 1. Install the necessary build tools and libraries:
 ```
 pacman -S base-devel mingw-w64-x86_64-toolchain mingw-w64-x86_64-cmake git
+pacman -S nasm
+pacman -S mingw-w64-x86_64-gcc
+```
+
+2. Added these to Windows System Path:
+```
+C:\msys64\usr\bin
+C:\msys64\mingw64\bin
 ```
 
 ## Configuring CMake to Use MSYS2

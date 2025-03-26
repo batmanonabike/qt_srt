@@ -3,11 +3,6 @@
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# See: qt_standard_project_setup() 
-# set(CMAKE_AUTOMOC ON)
-# set(CMAKE_AUTORCC ON)
-# set(CMAKE_AUTOUIC ON)
-
 # Add common compile options
 add_compile_options(/EHsc)
 
@@ -39,34 +34,7 @@ if(NOT BASH_EXECUTABLE)
     message(FATAL_ERROR "Bash executable not found. Please install MSYS2 or Git for Windows.")
 endif()
 
-# set(ENV{PATH} "C:/msys64/usr/bin;$ENV{PATH}")
-# set(ENV{EXTERNAL_PROJECT_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/../..")
 set(EXTERNAL_PROJECT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-
-# Tried to add to SYSTEM envirnonment variable, but it didn't work.
-# C:\msys64\usr\bin
-# C:\msys64\mingw64\bin
-# pacman -S nasm
-# pacman -S mingw-w64-x86_64-gcc
-
-# Determine platform-specific command execution
-set(CONFIGURE_COMMAND ${BASH_EXECUTABLE} -c "./configure --prefix=${FFMPEG_INSTALL_DIR} --enable-shared --disable-static")
-set(BUILD_COMMAND ${BASH_EXECUTABLE} -c "make -j4")
-set(INSTALL_COMMAND ${BASH_EXECUTABLE} -c "make install")
-
-# if(WIN32)
-#     set(CONFIGURE_COMMAND ${BASH_EXECUTABLE} -c "export PATH=/usr/bin:\$PATH && ${EXTERNAL_PROJECT_DIR}/x264/configure --prefix=${FFMPEG_INSTALL_DIR} --enable-shared --disable-static")
-#     set(BUILD_COMMAND ${BASH_EXECUTABLE} -c "export PATH=/usr/bin:\$PATH && make -j4")
-#     set(INSTALL_COMMAND ${BASH_EXECUTABLE} -c "export PATH=/usr/bin:\$PATH && make install")
-# else()
-#     set(CONFIGURE_COMMAND ./configure --prefix=${FFMPEG_INSTALL_DIR} --enable-shared --disable-static)
-#     set(BUILD_COMMAND make -j4)
-#     set(INSTALL_COMMAND make install)
-# endif()
-
-# set(CONFIGURE_COMMAND bash.exe ./configure --prefix=${FFMPEG_INSTALL_DIR} --enable-shared --disable-static)
-# set(BUILD_COMMAND make -j4)
-# set(INSTALL_COMMAND make install)
 
 # Print status messages
 message(STATUS "PKG_CONFIG_PATH=${PKG_CONFIG_PATH}")
