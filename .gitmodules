@@ -7,3 +7,15 @@
 [submodule "QtSrt/vcpkg"]
 	path = QtSrt/vcpkg
 	url = https://github.com/Microsoft/vcpkg.git
+[submodule "QtSrt/x264"]
+	path = QtSrt/x264
+	url = https://code.videolan.org/videolan/x264.git
+[submodule "QtSrt/x265_git"]
+	path = QtSrt/x265_git
+	url = https://bitbucket.org/multicoreware/x265_git.git
+[submodule "QtSrt/libvpx"]
+	path = QtSrt/libvpx
+	url = https://chromium.googlesource.com/webm/libvpx.git
+[submodule "QtSrt/ffmpeg"]
+	path = QtSrt/ffmpeg
+	url = https://github.com/FFmpeg/FFmpeg

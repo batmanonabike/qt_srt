@@ -154,6 +154,7 @@ This setup allows you to build the SRT project alongside your main project for b
 ## Other Project Prerequisites
 - [PkgConfig Setup Guide](pkgconfig_setup.md) - Instructions for installing and configuring PkgConfig with CMake
 - [Vcpkg Setup Guide](vcpkg_setup.md) - Instructions for installing and configuring vcpkg with CMake
+- [MSYS Setup Guide](unix_setup.md) - Setting up a Unix-like Environment with MSYS on Windows
 
 Used by RTMPViewer...
 ```

@@ -4,6 +4,7 @@ project(MockCameraApp2 LANGUAGES CXX)
 
 set(PROJECT_SOURCES main.cpp qml.qrc)
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/../qt_common.cmake)
 find_package(Qt6 COMPONENTS Core Quick Multimedia REQUIRED)
 qt_standard_project_setup()
 

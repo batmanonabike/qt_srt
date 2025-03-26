@@ -24,7 +24,10 @@ set_property(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/srt"
     "-DOPENSSL_USE_STATIC_LIBS:BOOL=${OPENSSL_USE_STATIC_LIBS}"
 )
 
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/external/ffmpeg)
 add_subdirectory(QtSrtMainLib)
+# target_link_libraries(QtSrtMainLib avcodec avformat avutil swscale)
+
 add_subdirectory(MockCameraApp1)
 add_subdirectory(MockCameraApp2)
 add_subdirectory(RTMPViewer)

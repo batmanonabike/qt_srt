@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(MockCameraApp1 LANGUAGES CXX)
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/../qt_common.cmake)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} 
     COMPONENTS

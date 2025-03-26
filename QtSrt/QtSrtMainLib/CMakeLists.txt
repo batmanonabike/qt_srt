@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(QtSrtMainLib LANGUAGES CXX)
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/../qt_common.cmake)
 find_package(Qt6 COMPONENTS Core Quick Multimedia REQUIRED)
 qt_standard_project_setup()
 
@@ -18,7 +19,13 @@ set(PROJECT_LIBS
     "Qt6::Core"
     "Qt6::Quick"
     "Qt6::Multimedia"
+    
 )
+
+# "avcodec"
+# "avformat"
+# "avutil" 
+# "swscale"
 
 add_library(${PROJECT_NAME} STATIC ${PROJECT_SOURCES})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${PROJECT_LIBS})
